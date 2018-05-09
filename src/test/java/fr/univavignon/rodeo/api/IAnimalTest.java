@@ -1,38 +1,30 @@
 package fr.univavignon.rodeo.api;
 
-/**
- * Animal definition.
- * 
- * @author fv
- */
-public interface IAnimal extends INamedObject {
+import org.junit.Test;
 
-	/**
-	 * Getter for the associated species XP.
-	 * 
-	 * @return The amount of XP given when riding it.
-	 */
-	int getXP();
 
-	/**
-	 * Indicates if this animal is a secret one.
-	 * 
-	 * @return <tt>true</tt> if this animal is a secret one, <tt>false</tt> otherwise.
-	 */
-	boolean isSecret();
+public class IAnimalTest{
 
-	/**
-	 * Indicates if this animal is an endangered one..
-	 * 
-	 * @return <tt>true</tt> if this animal is an endangered one, <tt>false</tt> otherwise.
-	 */
-	boolean isEndangered();
+	@Test
+public void getXP() {
+	
 
-	/**
-	 * Indicates if this animal is a boss.
-	 * 
-	 * @return <tt>true</tt> if this animal is a boss, <tt>false</tt> otherwise.
-	 */
-	boolean isBoss();
+}
+  @Test
+public void isBossTest(){
+	
+	
+}
+  @Test
+public void isEndangeredTest(){
+	
+		
+}
+  @Test
+public void isSecretTest(){
+	
+	
+	
+}
 
 }
