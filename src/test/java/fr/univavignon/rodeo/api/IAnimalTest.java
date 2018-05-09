@@ -44,7 +44,7 @@ public void isEndangeredTest(){
 public void isSecretTest(){
 	
 	
-	  assertEquals(true,animal().isEndangered());
+	  assertEquals(false,animal().isEndangered());
 
 }
 
