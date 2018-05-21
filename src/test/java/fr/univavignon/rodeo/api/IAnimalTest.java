@@ -1,4 +1,6 @@
 package fr.univavignon.rodeo.api;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import static org.junit.Assert.*;
 
@@ -6,46 +8,85 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 
-public class IAnimalTest{
+public class IAnimalTest {
 
-	//Mock creation  
-	public static IAnimal createAnimal(int getXP, boolean isSecret, boolean isEndangered, boolean isBoss) {
-		IAnimal animal = Mockito.mock(IAnimal.class);
-		Mockito.when(animal.getXP()).thenReturn(getXP);
-		Mockito.when(animal.isSecret()).thenReturn(isSecret);
-		Mockito.when(animal.isEndangered()).thenReturn(isEndangered);
-		Mockito.when(animal.isBoss()).thenReturn(isBoss);
-		return animal;
-}
+	public IAnimal iAnimal;
 	
-	protected IAnimal animal(){
-		return createAnimal(2,true,false,false);
+	/**
+	 * get IAnimal Mock
+	 * @return
+	 */
+	public static IAnimal getIAnimalMock() {
+		IAnimal iAnimal = mock(IAnimal.class);				
+		// defining the value of XP
+		when(iAnimal.getXP()).thenReturn(1);
+		// init iAnimal
+		// defining the value of isBoss
+        when(iAnimal.isBoss()).thenReturn(true);	
 		
+		// defining the value of isEndagered
+        when(iAnimal.isEndangered()).thenReturn(true);	
+
+		// defining the value of isSecret
+        when(iAnimal.isSecret()).thenReturn(false);
+        
+		// defining the value of name
+        when(iAnimal.getName()).thenReturn("test");
+        
+		return  iAnimal;
+	}	
+	
+	/**
+	 * get IAnimal Instance
+	 * @return
+	 */
+	public  IAnimal getIAnimalInstance() {
+		return  getIAnimalMock();
 	}
 	
+	/**
+	 * Testing Get XP
+	 */
 	@Test
-public void getXP() {
-		assertEquals(2,animal().getXP());
-	
+	public void testGetXP() {
+		// init iAnimal
+		iAnimal=getIAnimalInstance();
+        //test the getXP
+        assertEquals(iAnimal.getXP(), 1);
+	}
 
-}
-  @Test
-public void isBossTest(){
-	
-		assertEquals(false,animal().isBoss());
+	/**
+	 * Thesting Is Boss
+	 */
+	@Test
+	public void testIsBoss() {
+		// init iAnimal
+		iAnimal=getIAnimalInstance();
+		
+        
+        //test the isBoss
+        assertTrue(iAnimal.isBoss());	
+        }
 
-}
-  @Test
-public void isEndangeredTest(){
-	
-	  assertEquals(false,animal().isEndangered());
-}
-  @Test
-public void isSecretTest(){
-	
-	
-	  assertEquals(false,animal().isEndangered());
+	/**
+	 * Testing Is Endangered
+	 */
+	@Test
+	public void testIsEndangered() {
+		// init iAnimal
+		iAnimal=getIAnimalInstance();
+        
+        //test the isBoss
+        assertTrue(iAnimal.isEndangered());		
+        }
 
-}
+	@Test
+	public void testIsSecret() {
+		// init iAnimal
+		iAnimal=getIAnimalInstance();
+        
+        //test the isSecret
+        assertFalse(iAnimal.isSecret());		
+        }
 
 }
